@@ -73,6 +73,7 @@ background: radial-gradient(ellipse at center, rgba(239,247,255,1) 7%,rgba(166,1
 	.control{position: absolute;z-index:9;top:0;height:100%;width:100%;}
 	.btn{font-size: 100px; height:100%;background-color: rgba(256,256,256,0);color:rgba(220,220,200,.6); border:none;/**/ }
 	.btn:hover,.btn:focus{border: none;outline: none;}
+	.btn:active{color:rgba(220,120,120,.6);;}
 	#last{width:20%;text-align:left;}
 	#next{width:75%;text-align:right; }
 	</style>
@@ -146,9 +147,13 @@ background: radial-gradient(ellipse at center, rgba(239,247,255,1) 7%,rgba(166,1
 		img.style.marginLeft = (win_width - img.clientWidth) /2;
 
 	},
+	
+	// handdle image.. 
+	last_btn = el('last'),
+	next_btn = el('next'),
 	// Get next Image
 	next = function(e){
-
+		next_btn.style.c
 		current_image += 1 ;
 		if(current_image === image_array.length || current_image < 0){
 			current_image = 0;
@@ -163,10 +168,7 @@ background: radial-gradient(ellipse at center, rgba(239,247,255,1) 7%,rgba(166,1
 			current_image = image_array.length-1;
 		}
 		load_image(image_array[current_image]);
-	},
-	// handdle image.. 
-	last_btn = el('last'),
-	next_btn = el('next');
+	};
 
 	next_btn.addEventListener('click',next, false);
 	last_btn.addEventListener('click',last, false);
